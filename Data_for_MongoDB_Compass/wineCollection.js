@@ -1,6 +1,7 @@
 [
   {
-    wine: "Ottolenghi Red Wine 1906",
+    name: "Ottolenghi Red Wine 1906",
+    wine: "Red",
     winery: "Czech winery Krásná Hora",
     rating: 4.7,
     reviews: [
@@ -27,7 +28,8 @@
     votes: 4,
   },
   {
-    wine: "Rose Frizant, Mas de Daumas Gassac, Languedoc, France, 2016",
+    name: "Rose Frizant, Mas de Daumas Gassac, Languedoc, France, 2016",
+    wine: "Rose",
     winery: "Languedoc winery",
     rating: 4.8,
     reviews: [
@@ -54,7 +56,8 @@
     votes: 2,
   },
   {
-    wine: "Signature, Huguenot-Tassin, Blanc de Noir, Extra Brut",
+    name: "Signature, Huguenot-Tassin, Blanc de Noir, Extra Brut",
+    wine: "White",
     winery: "Huguenot-Tassin winery",
     rating: 4.8,
     reviews: [
@@ -81,7 +84,8 @@
     votes: 6,
   },
   {
-    wine: "Prosecco Sottoriva Malibran, Veneto, Italy, NV",
+    name: "Prosecco Sottoriva Malibran, Veneto, Italy, NV",
+    wine: "Sparkling",
     winery: "Veneto winery",
     rating: 4.7,
     reviews: [
@@ -101,5 +105,71 @@
     available: 15,
     price: "£23.00",
     votes: 4,
+  },
+
+  {
+    name: "Ottolenghi White Wine",
+    wine: "White",
+    winery: " Czech winery Krásná Hora",
+    rating: 4.7,
+    reviews: [
+      {
+        name: "Emma",
+        text: "Will have one on the comming weekends :)",
+        date_time: "20.07.2021 15:45:46",
+      },
+    ],
+    location: "Switzerland",
+    image:
+      "https://ottolenghi.co.uk/pub/media/catalog/product/cache/0b99e5dd8d4a3624f51015f543ad835d/w/h/white_wine_2.jpg",
+    year: 2000,
+    description:
+      "The biodynamic Ottolenghi wines, in collaboration with Czech winery Krásná Hora, are designed to compliment the flavours synonymous with Ottolenghi and presented with a special label designed by Ottolenghi's long-time collaborator, Ivo Bisignano. This blend of Sauvignon Blanc, Pinot Blanc, Riesling and Gewürztraminer offers a unique and harmonious duo which is both fruity and aromatic. Indulging aromas of tropical fruit, white peach, jasmine and lemon zest excite the senses and initiate an experience that is so satisfying.",
+    grade: "sweet",
+    available: 8,
+    price: "£26.00",
+    votes: 2,
+  },
+
+  {
+    name: "Wicked Lady White Zinfandel Rose Wine 75cl",
+    wine: "Rose",
+    winery: " Californian vineyards.",
+    rating: 4.8,
+    reviews: [
+      {
+        name: "Kevin",
+        text: "It is Medium-sweet rose wine made using Zinfandel grapes",
+        date_time: "20.07.2021 15:45:46",
+      },
+    ],
+    location: "California.",
+    image:
+      "https://secretbottleshop.co.uk/cdn/shop/products/aa9044f4-721b-4a9e-b0fa-91493230cf24_464x464.jpg?v=1690977292",
+    year: 2019,
+    description:
+      "The juice from the crushed grapes spends a short time in contact with the skins which gives the wine a salmon-pink colour. Shows red-fruits on the rich, juicy palate. A fruit-forward-yet-bold red that’s loved for its red fruit flavours and smoky exotic spice notes.",
+    grade: "Medium-sweet",
+    available: 9,
+    price: "£10.95",
+    votes: 2,
+  },
+
+  {
+    name: "Laborie Cap Classique Blanc De Blanc Sparkling 2017 75cl",
+    wine: "Sparkling",
+    winery: "South Africa Western Cape",
+    rating: 4.8,
+    reviews: [],
+    location: "Country_South Africa",
+    image:
+      "https://secretbottleshop.co.uk/cdn/shop/products/dd465656-79ab-475a-b9ee-7a39648f2e4d_464x464.jpg?v=1689260013",
+    year: 2017,
+    description:
+      "This complex and indulgent South African Sparkling Wine shows clarity of fruit on the nose.  Hints of lime are accompanied by aromas of toasted bread and hazelnut. The palate is creamy, round and textured with an explosive acidity and lasting, elegant finish. The grapes were hand-harvested in the cool of the morning during harvest - and the attention to detail shows, as this wine won a Decanter magazine Gold Award.",
+    grade: "Medium-sweet",
+    available: 9,
+    price: "£14.95",
+    votes: 2,
   },
 ];
