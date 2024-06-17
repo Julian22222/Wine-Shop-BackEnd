@@ -17,8 +17,9 @@
       },
     ],
     location: "West Czech",
-    image:
-      "https://ottolenghi.co.uk/pub/media/catalog/product/cache/0b99e5dd8d4a3624f51015f543ad835d/r/e/red_wine_5.jpg",
+    // image:
+    //   "https://ottolenghi.co.uk/pub/media/catalog/product/cache/0b99e5dd8d4a3624f51015f543ad835d/r/e/red_wine_5.jpg",
+    image: "./IMG/wines/wine3.jpg",
     year: 1906,
     description:
       "The biodynamic Ottolenghi wines, in collaboration with Czech winery Krásná Hora, are designed to compliment the flavours synonymous with Ottolenghi and presented with a special label designed by Ottolenghi's long-time collaborator, Ivo Bisignano.The Ottolenghi Red is a juicy, fresh blend of Zweigelt, Pinot Noir and Dornfelder, making way for cherry, forest fruit tasting notes following fermentation in both used, old oak barrels and stainless steel tanks",
@@ -154,7 +155,6 @@
     price: "£10.95",
     votes: 2,
   },
-
   {
     name: "Laborie Cap Classique Blanc De Blanc Sparkling 2017 75cl",
     wine: "Sparkling",
