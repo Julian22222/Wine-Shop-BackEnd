@@ -342,3 +342,133 @@ db.users.update({fullname:"Jack"},{$set:{posts:[{title:"JavaScript", text: "js t
 db.users.findOne({fullname:"Tom"},{posts:1})  // will show only Tom's posts
 
 ```
+
+# Optimisation of connection between different collections
+
+This user has 2 addresses in the address array
+
+- We can use this template of writing few addresses for a single user but better if you use addresses objects in different collection, but in address array you insert indefication of this addresses which will be in different collection -->(ObjectId("....."))
+
+```JS
+{
+"name": "Tom Benzamin",
+"address": [{
+"building": "22A, Indian Apt",            //<--first address
+"pincode": 123456,
+"city": "Los Angeles",
+"state": "California"
+},
+{"building": "170A, Acropolis Apt",       //<--second address
+"pincode": 4456778,
+"city": "Chicago",
+"state": "Illinois"}]
+}
+```
+
+--> Better to use this type of template below to
+have user info and adresses in different collections
+
+- This way we will have different collections --> addresses in one collection but users in different collection.
+- This type of way of coding will give an advantage in adding, searching , refreshing making it faster.
+
+```JS
+{
+"_id": ObjectId("52ff756...."),
+"contact": 987654,
+"dob": "01-01-1991",
+"name": "Tom Benzamin",
+"address_ids":[
+    ObjectId('523fg456...'),   //<-- Id addresses from other collection which are linked with this this uder
+    ObjectId('78ku834....')    //<-- Id addresses from other collection which are linked with this this uder
+]
+}
+```
+
+# Connection to Database and settings
+
+- When we made connection to our Database, then we can write routes- api routes, where we write the code - indicating what we want to see (what data) when we use certain api-route in URL
+- connection goes through --> server. Where we use listen command. To listen file must be imported other files , such as routes, shchema
+
+```JS
+app.get('/movies', (req, res)=>{
+    db.collection('movies')                  //<-- all data from database is stored in variable --> db,  movies <--it is a name of collection
+    .find()                              //<-- will retuern all movies
+    .then((movies)=>{
+        res.status(200).json(movies)
+    .catch((err)=>{
+        res.status(500).json({'error': `${err}`})
+    })
+    })
+})
+```
+
+## Connection to DB
+
+```JS
+const {MongoClient} = require("mongodb");     //<-- destructurisation, getting MongoClient from mongodb package
+
+const client = new MongoClient('URL');         //<-- URL of database that we are connecting with, URL we are getting from mongo db atlass when creating a cluster
+client.connect();
+```
+
+### Connection to local DB
+
+```JS
+db.js (file name)
+
+
+
+
+const URL = 'mongodb://localhost:27017/moviebox';        //<-- if we are getting data from mongoDB compass,    localhost:27017 <-- PORT that we are using to connect to local DB (located on top left corner in mongoDB compass). MongoDB compass <-- works only locally, can use it when testing something locally.   moviebox <-- name of the Database
+
+let dbConnection;
+
+//connecting to Database
+MongoClient.connect(URL).then((client)=>{
+    dbConnection = client.db();            //<-- database response
+
+    module.exports.connectionToDb = (callback)=>{
+        MongoClient.connect(URL).then((client)=>{
+            console.log('connected to mongoDB');    //<-- in case of successful connection will show msg in console
+
+        dbConnection = client.db();    //<-- asign the result to variable
+
+        return callback();
+        })
+    .catch((err)=>{
+        return callback(err);
+    })
+    }
+})
+
+module.exports.getDB = () =>{dbConnection};   //<-- use that variable
+
+```
+
+```JS
+server.js (file name)
+
+
+
+
+const express = require('express');
+const {connectToDb, getDB} = require('./db');    //<-- import function from db.js
+
+const PORT = 3000;
+const app = expess();
+
+let db;
+
+connectToDb((err)=>{
+    if(!err){
+        app.listen(PORT,(err)=>{
+            err ? console.log(err) : console.log(`Server is listening on PORT ${PORT}`)
+        });
+
+db = getDB();   //<-- in case of successful connection to Database we will assign data from database (from function getDB() ) to db variable
+    } else{
+       console.log(`DB connection error: ${err}`)      //<-- in case of fail to connect to databse will show msg
+    }
+});
+
+```
