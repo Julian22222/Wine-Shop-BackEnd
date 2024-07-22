@@ -472,3 +472,99 @@ db = getDB();   //<-- in case of successful connection to Database we will assig
 });
 
 ```
+
+# MVC in MongoDB
+
+```JS
+server.js (file name)
+
+
+
+const exress = require('express');
+const app = express();
+const cors = require('cors');
+app.use(cors());
+require("dotenv").config();
+
+const mongoose = require("mongoose");
+const wineRoutes = require("./routes/wine-routes");
+
+const PORT = process.env.PORT;
+
+
+mangoose.connect(.....);  //<-- connecting to the server
+
+
+
+app.listen(PORT, (err) => {
+  err ? console.log(err) : console.log(`Server is listening on port ${PORT}`);
+});
+
+module.exports = app;
+```
+
+```JS
+routes.js (file name)   // here we indicate end-points, routes
+
+
+
+
+const express = require('express');
+const router = express.Router();
+
+const {getWines} = require('../controllers.js');   //<-- import getWines, destructurisation
+
+router.get("/wines", getWines);   //<-- using this route we invoking getWines function
+router.delete(....);
+router.post(....);
+router.patch(....);
+
+module.exports = router;
+```
+
+```JS
+controllers.js (file name)    //<-- connection with model, handles user request
+
+
+
+
+
+
+
+const wine = require('../models/wine');   //<-- Import variable to interact with database
+
+//all logic located here, everithing we want to do with database, in case of fail show an error message
+const getWines = (req,res)=>{
+    wine.find().sort({wine: 1}).then((data)=>{
+        res.status(200).json(data);
+    })
+    .catch((err)=>{
+        res.status(500).json({err: "This is errror message"});
+    });
+};
+```
+
+```JS
+model-wine.js  (file name)   //<-- Schema file, template for each document in the collection, using correct data type for each fild
+
+
+
+const mangoose = require("mangoose");
+const Schema = mangoose.Schema;
+
+const wineSchema = new Schema({
+    title: {                     //<-- fields from database, which have correct data type that Schema is expecting to receive
+        type: String,
+        required: true,
+        ......
+    },
+    .....
+    .....
+
+});
+
+
+const wine = mangoose.model("Wine", wineSchema);   //<--creating wine variable, which will connect to our database
+module.exports = wine;
+
+```
