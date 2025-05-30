@@ -7,6 +7,7 @@ require("dotenv").config();
 
 app.use(cors());
 
+//API PORT
 const PORT = process.env.PORT;
 
 // this URL we use without hosting, local database from MongoDB Compass
