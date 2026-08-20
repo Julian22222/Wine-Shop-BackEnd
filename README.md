@@ -251,8 +251,6 @@ DATABASE=your_database_name
 
 The MongoDB connection string is constructed from these environment variables in `server.js`.
 
-> Never commit database credentials or other secrets to GitHub.
-
 ### Run the Development Server
 
 Start the application with:
@@ -298,9 +296,24 @@ The repository also contains example database data for working with MongoDB Comp
 
 ## 🧪 Testing
 
-Automated tests are not currently configured in this repository.
+The project uses Jest and Supertest for automated unit and integration testing.
 
-The API can be tested manually using tools such as Postman or by sending HTTP requests directly to the endpoints.
+**49 automated tests covering controllers and API endpoints.**
+
+The test suite covers:
+
+- Wine controller operations
+- User controller operations
+- API endpoints
+- Successful requests
+- Error handling
+- Database-related failure scenarios
+
+Run the tests with:
+
+```bash
+npm test
+```
 
 ## 🚀 Deployment
 

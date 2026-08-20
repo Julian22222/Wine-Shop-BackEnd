@@ -130,8 +130,8 @@ describe("Wine API", () => {
 
       const wineId = createResponse.body._id;
 
-      console.log("Created wine:", createResponse.body);
-      console.log("Wine ID:", wineId);
+      //   console.log("Created wine:", createResponse.body);
+      //   console.log("Wine ID:", wineId);
 
       // Update the wine
       const response = await request(app).patch(`/wines/${wineId}`).send({
