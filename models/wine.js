@@ -10,7 +10,7 @@ const wineSchema = new Schema({
     type: String,
     required: true,
   },
-  winary: {
+  winery: {
     type: String,
     required: true,
   },

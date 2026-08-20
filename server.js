@@ -1,11 +1,7 @@
-const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
-const cors = require("cors");
-const wineRoutes = require("./routes/wine-routes");
 require("dotenv").config();
 
-app.use(cors());
+const app = require("./app");
 
 //API PORT
 const PORT = process.env.PORT;
@@ -16,9 +12,6 @@ const PORT = process.env.PORT;
 
 const URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.PASSWORD}@cluster0.rmfxbzb.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`;
 
-app.use(express.json());
-app.use(wineRoutes);
-
 mongoose
   .connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((res) => {
@@ -28,12 +21,8 @@ mongoose
     console.log(`DB connection error: ${err}`);
   });
 
-// app.get("/", (req, res) => {
-//   res.send("Hello");
-// });
-
 app.listen(PORT, (err) => {
   err ? console.log(err) : console.log(`Server is listening on port ${PORT}`);
 });
 
-module.exports = app;
+// module.exports = app;
