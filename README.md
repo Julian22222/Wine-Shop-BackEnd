@@ -37,15 +37,6 @@ Wine Shop
 - Store wine ratings and reviews
 - Store product availability and pricing information
 
-### User Management
-
-- Retrieve users
-- Retrieve a single user by ID
-- Create users
-- Update user information
-- Delete users
-- Store user favourites
-
 ### API
 
 - RESTful API endpoints
@@ -344,17 +335,20 @@ Key areas of focus include:
 
 Potential improvements include:
 
-- Add automated unit and integration tests
 - Add request validation
-- Improve API error handling and status codes
 - Add authentication and authorisation
 - Hash user passwords before storing them
-- Add API documentation with Swagger/OpenAPI
 - Add pagination for larger datasets
 - Add input sanitisation and additional security controls
 - Add structured logging
-- Add CI/CD automation
 - Add Docker
+
+User Management:
+
+- Create users
+- Update user information
+- Delete users
+- Store user favourites
 
 ## 👨‍💻 Author
 
