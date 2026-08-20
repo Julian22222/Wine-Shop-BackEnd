@@ -9,6 +9,9 @@
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
+  "engines": {
+    "node": ">=24 <25"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
